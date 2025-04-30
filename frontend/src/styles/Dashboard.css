@@ -1,0 +1,70 @@
+/* Dashboard Styles */
+.dashboard-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #f4f7fb;
+  flex-grow: 1; /* Allow content to expand to fill available space */
+}
+
+footer {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+
+.dashboard-header {
+  background-color: #f9b342; /* Subtle orange background for the header */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px; /* Adds spacing between the header and content */
+  width: 100%; /* Makes the header stretch the full width */
+  display: flex; /* Uses flexbox for layout */
+  align-items: flex-start; /* Overrides center alignment for this header */
+  justify-content: flex-start; /* Aligns the content to the left */
+}
+
+.main-title {
+  font-size: 5rem; /* Increased size for a wider effect */
+  font-weight: bold;
+  color: #3498db; /* Primary accent color */
+  text-transform: uppercase; /* Makes the text uppercase for emphasis */
+  margin-bottom: 10px;
+  letter-spacing: 7px;
+  width: 100%; /* Ensures the text takes up full width */
+  word-break: break-word; /* Ensures the text wraps properly if it's too long */
+}
+
+.sub-title {
+  font-size: 2rem; /* Slightly larger sub-title */
+  font-weight: 500;
+  color: #333; /* Dark color for the sub-title */
+  margin-top: 5px;
+  margin-bottom: 40px;
+  letter-spacing: 3px;
+  width: 100%; /* Ensures the text takes up full width */
+  word-break: break-word; /* Wraps long sub-title text */
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This ensures footer sticks to the bottom */
+  background-color: #f4f7fb;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+

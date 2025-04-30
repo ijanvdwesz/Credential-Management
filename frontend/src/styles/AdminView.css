@@ -1,0 +1,36 @@
+/* Styles for Admin Actions heading */
+.admin-actions-heading {
+  font-size: 2.5rem; /* Increased size for a more prominent heading */
+  font-weight: bold;
+  color: #333; /* Dark text color */
+  text-align: center; /* Centers the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Links Container for column layout */
+.links-container {
+  display: flex;
+  flex-direction: column; /* Arranges links in a column */
+  align-items: center; /* Centers align the links */
+  gap: 15px; /* Space between links */
+  margin-top: 20px;
+}
+
+/* Common Link styles */
+.link {
+  display: inline-block;
+  background-color: #3498db; /* Primary button color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none; /* Removes underline */
+  text-align: center;
+  width: 100%; /* Makes the link take the full available width */
+  max-width: 200px; /* Limits the width to 200px */
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+/* Link hover effect */
+.link:hover {
+  background-color: #2980b9; /* Changes to a slightly darker blue on hover */
+}

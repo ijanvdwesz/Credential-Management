@@ -1,0 +1,14 @@
+The Passwords in the database are hashed ,in order to test :
+Use password followed by the number (0-9) found before the '@' in the users email
+eg 
+Admin
+briana.bogisich0@example.com
+passwords0
+
+Division-manager
+madisen.torphy4@example.com
+password4
+
+Normal-User
+aglae.haag2@example.com
+password2

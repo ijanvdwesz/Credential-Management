@@ -1,0 +1,197 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This ensures footer sticks to the bottom */
+  background-color: #f4f7fb;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+/* Anchor tag styling to look like buttons */
+a {
+  display: inline-block; /* Makes the anchor behave like a block-level element */
+  padding: 12px 20px; /* Similar to button padding */
+  background-color: #3498db; /* Button background color */
+  color: white; /* Text color for links */
+  border-radius: 5px; /* Rounded corners like buttons */
+  text-decoration: none; /* Removes underline */
+  font-size: 16px; /* Same size as buttons */
+  font-weight: 500; /* Slightly bold for emphasis */
+  text-align: center; /* Centers the text */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+}
+
+a:hover {
+  background-color: #f9b342; /* Subtle orange when hovered */
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+/* Container for App */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+footer, header, .navbar {
+  width: 100%;
+}
+
+header {
+  background-color: #3498db; /* Primary accent color */
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form and Input styles */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px; /* Limits form width */
+  margin: 0 auto; /* Centers form */
+}
+
+input,
+textarea,
+select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #3498db; /* Primary button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px; /* Button width restriction */
+  margin: 0 auto; /* Centers button */
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* List styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 800px; /* Limits list width */
+  margin: 0 auto; /* Centers list */
+}
+
+li {
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #ecf0f1; /* Slight hover effect for list items */
+}
+
+/* Auth form container */
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.auth-form-container p {
+  margin-top: 20px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-form-container a {
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.auth-form-container a:hover {
+  color: #2980b9;
+}
+.footer {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  header {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
