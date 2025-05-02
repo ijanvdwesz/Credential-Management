@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/App.css"
+const BASE_URL = process.env.REACT_APP_API_URL;
 // Component that changes user roles
 const ChangeUserRole = () => {
   const [userId, setUserId] = useState("");  // State that holds the user ID
@@ -18,7 +19,7 @@ const ChangeUserRole = () => {
       const token = localStorage.getItem("token");
 
       // Sends PATCH request to change user role
-      const response = await fetch(`/api/users/change-role/${userId}`, {
+      const response = await fetch(`${BASE_URL}/api/users/change-role/${userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",  // Indicates JSON content

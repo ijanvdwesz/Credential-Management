@@ -1,5 +1,6 @@
 import React, { useState } from "react";  // Imports React and useState hook for state management
 import { useNavigate } from "react-router-dom";  // Imports useNavigate for redirecting after successful registration
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 // RegisterForm component handles the user registration process
 const RegisterForm = () => {
@@ -33,7 +34,7 @@ const RegisterForm = () => {
 
     try {
       // Makes API call to register the user with the entered form data
-      const response = await fetch("/api/auth/register", {
+      const response = await fetch(`${BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  // Sets the request content type to JSON

@@ -1,5 +1,6 @@
 import React from "react";  // Imports React for component creation
 import { Navigate } from "react-router-dom";  // Imports Navigate for redirection
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 // ProtectedRoute component accepts children (components to be rendered) and allowedRoles (roles permitted to access the route)
 const ProtectedRoute = ({ children, allowedRoles }) => {

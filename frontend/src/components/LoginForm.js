@@ -1,5 +1,6 @@
 import React, { useState } from "react";  // Imports React and useState for managing form state
 import { useNavigate, Link } from "react-router-dom";  // Imports useNavigate for redirection and Link for navigation
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const LoginForm = () => {
   const navigate = useNavigate();  // Hook for navigating to different routes
@@ -28,7 +29,7 @@ const LoginForm = () => {
 
     try {
       // Sends POST request to the server for login
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch(`${BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  // Indicates that we're sending JSON

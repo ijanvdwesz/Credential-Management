@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"; // Imports necessary React hooks and styles
 import "../styles/App.css"; // Imports the styles for the component
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 const CreateCredential = () => {
   // State that holda the credential form values
   const [newCredential, setNewCredential] = useState({
@@ -31,7 +31,7 @@ const CreateCredential = () => {
     const fetchUserDivisions = async () => {
       try {
         // Fetches the user's divisions from the backend with the Authorization header
-        const response = await fetch("/api/users/user-info", {
+        const response = await fetch(`${BASE_URL}/api/users/user-info`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -74,7 +74,7 @@ const CreateCredential = () => {
 
     try {
       // Sends a POST request to the backend that creates the credential
-      const response = await fetch("/api/credentials", {
+      const response = await fetch(`${BASE_URL}/api/credentials`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,6 +1,7 @@
 import React from "react"; // Imports React library
 import { Link, useLocation } from "react-router-dom"; // Imports Link component for routing and useLocation hook to get the current location
 import "../styles/NavBar.css";//External CSS Styles
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const NavBar = () => {
   const location = useLocation(); // useLocation hook that gets the current URL path

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";  // Imports React, useState, and useEffect for state management and side effects
 import { Link } from "react-router-dom";  // Imports Link for routing to different pages
 import "../styles/NormalUserView.css"  // Imports custom styles for the NormalUserView component
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export const NormalUserView = () => {
   const [divisions, setDivisions] = useState([]);  // State that holds divisions related to the user
@@ -8,7 +9,7 @@ export const NormalUserView = () => {
 
   // Fetches user info to get the divisions associated with the user
   useEffect(() => {
-    fetch("/api/users/user-info", {
+    fetch(`${BASE_URL}/api/users/user-info`, {
       headers: { Authorization: `Bearer ${token}` },  // Authorization header with the token
     })
       .then((res) => res.json())  // Parses the response data

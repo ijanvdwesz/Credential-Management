@@ -4,6 +4,7 @@ import { NormalUserView } from "./NormalUserView";
 import { DivisionManagerView } from "./DivisionManagerView";
 import AdminView from "./AdminView";
 import "../styles/Dashboard.css";
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const Dashboard = () => {
   const [role, setRole] = useState("");
@@ -15,7 +16,7 @@ const Dashboard = () => {
     if (!token) {
       navigate("/login");
     } else {
-      fetch("/api/users/user-info", {
+      fetch(`${BASE_URL}/api/users/user-info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())

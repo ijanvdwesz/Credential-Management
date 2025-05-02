@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"; // Imports necessary React h
 import { DivisionManagerView } from "./DivisionManagerView"; // Imports DivisionManagerView component
 import { Link } from "react-router-dom"; // Imports Link component for navigation
 import "../styles/AdminView.css" // Imports CSS for styling the Admin View
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 const AdminView = () => {
   // State that tracks loading status and errors
   const [loading, setLoading] = useState(true); // Initial loading state is true
@@ -16,12 +16,12 @@ const AdminView = () => {
       try {
         // Uses Promise.all to fetch divisions and OUs concurrently
         const [divisionsResponse, ousResponse] = await Promise.all([
-          fetch("/api/divisions", {
+          fetch(`${BASE_URL}/api/divisions`, {
             headers: {
               "Authorization": `Bearer ${token}`, // Attaches token to request headers
             }
           }),
-          fetch("/api/ous", {
+          fetch(`${BASE_URL}/api/ous`, {
             headers: {
               "Authorization": `Bearer ${token}`, // Attaches token to request headers
             }

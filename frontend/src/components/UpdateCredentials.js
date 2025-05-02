@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";  // Imports React, useState and useEffect hooks
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 // UpdateCredentials component handles the functionality for updating existing credentials
 const UpdateCredentials = () => {
@@ -16,7 +17,7 @@ const UpdateCredentials = () => {
     const token = localStorage.getItem("token");  // Gets the token from localStorage for authentication
     if (token) {
       // Fetches credentials from the API if the token exists
-      fetch("/api/credentials", {
+      fetch(`${BASE_URL}/api/credentials`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,  // Includes token in the request headers for authentication
@@ -75,7 +76,7 @@ const UpdateCredentials = () => {
     }
 
     // Updates the selected credential by sending a PATCH request to the backend
-    fetch(`/api/credentials/${selectedCredential._id}`, {
+    fetch(`${BASE_URL}/api/credentials/${selectedCredential._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",  // Sets the content type to JSON

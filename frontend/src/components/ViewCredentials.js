@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import { useLocation } from "react-router-dom";
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const ViewCredentials = () => {
   const location = useLocation();  // Gets location object from react-router-dom
@@ -14,7 +15,7 @@ const ViewCredentials = () => {
         console.log("Token used for fetching: ", token); // Checks if token is available for debugging
 
         // Fetches the user information
-        const userInfoResponse = await fetch("/api/users/user-info", {
+        const userInfoResponse = await fetch(`${BASE_URL}/api/users/user-info`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,  // Sends the token in the Authorization header
@@ -40,7 +41,7 @@ const ViewCredentials = () => {
         }
 
         // Fetches credentials for the selected division
-        const credentialsResponse = await fetch(`/api/credentials?divisionId=${selectedDivisionId}`, {
+        const credentialsResponse = await fetch(`${BASE_URL}/api/credentials?divisionId=${selectedDivisionId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,  // Sends the token for authentication
