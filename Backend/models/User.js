@@ -1,6 +1,6 @@
 // Imports required modules
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 // Defines the User schema
 const userSchema = new mongoose.Schema(
