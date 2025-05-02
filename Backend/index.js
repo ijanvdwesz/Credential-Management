@@ -7,9 +7,8 @@ const divisionRoutes = require("./routes/Division");
 const credentialsRoutes = require("./routes/Credentials");
 const userAssignmentsRoutes = require("./routes/userAssignments");
 const ousRoutes = require("./routes/OUs");
-const verifyToken = require("./routes/VerifyToken"); // Imports the middleware
-const cors = require('cors');
-
+const verifyToken = require("./routes/VerifyToken");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
@@ -21,50 +20,40 @@ app.use(cors({
   origin: "https://credential-management-1pl5fp4a7.vercel.app",
   credentials: true
 }));
+
 // Connects to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-// Middleware for debugging
-const debugMiddleware = (req, res, next) => {
+// Debugging middleware
+app.use((req, res, next) => {
   console.log(`[DEBUG] ${req.method} request to ${req.originalUrl}`);
   console.log("[DEBUG] Headers:", req.headers);
   console.log("[DEBUG] Body:", req.body);
   next();
-};
-app.use(debugMiddleware);
+});
 
-// Routes
+// Public route
 app.get("/", (req, res) => res.send("Cool-Tech Running"));
 
-// Auth routes (No token verification needed here)
+// Public auth routes
 app.use("/api/auth", registerRoutes);
 app.use("/api/auth", loginRoutes);
 
-// Applies token verification to all routes after the auth routes
-app.use(verifyToken);
+// Protected routes (with JWT verification)
+app.use("/api/divisions", verifyToken, divisionRoutes);
+app.use("/api/credentials", verifyToken, credentialsRoutes);
+app.use("/api/users", verifyToken, userInfoRoutes);
+app.use("/api/users", verifyToken, userAssignmentsRoutes);
+app.use("/api/ous", verifyToken, ousRoutes);
 
-// Division-related routes (Protected)
-app.use("/api/divisions", divisionRoutes);
-app.use("/api/credentials", verifyToken, credentialsRoutes); // Division-specific credentials
-
-// General credentials routes (Protected)
-app.use("/api/credentials", credentialsRoutes);
-
-// User info routes (Protected)
-app.use("/api/users", userInfoRoutes);
-
-// User assignments routes (Protected)
-app.use("/api/users", userAssignmentsRoutes);
-app.use("/api/ous", ousRoutes);
-
-// Catch-all for unmatched routes (404)
+// 404 handler
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// Starts the server
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
