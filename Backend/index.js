@@ -10,11 +10,6 @@ const ousRoutes = require("./routes/OUs");
 const verifyToken = require("./routes/VerifyToken"); // Imports the middleware
 const cors = require('cors');
 
-app.use(cors({
-  origin: "https://credential-management-1pl5fp4a7.vercel.app",
-  credentials: true
-}));
-
 require("dotenv").config();
 
 const app = express();
@@ -22,7 +17,10 @@ const app = express();
 // Middleware that parses JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors({
+  origin: "https://credential-management-1pl5fp4a7.vercel.app",
+  credentials: true
+}));
 // Connects to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
