@@ -16,8 +16,20 @@ const app = express();
 // Middleware that parses JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const allowedOrigins = [
+  "https://credential-management-1pl5fp4a7.vercel.app",
+  "https://credential-management-qtqxvkmy3.vercel.app",
+  "https://credential-management-plum.vercel.app"
+];
+
 app.use(cors({
-  origin: "https://credential-management-1pl5fp4a7.vercel.app",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
 
