@@ -8,6 +8,12 @@ const credentialsRoutes = require("./routes/Credentials");
 const userAssignmentsRoutes = require("./routes/userAssignments");
 const ousRoutes = require("./routes/OUs");
 const verifyToken = require("./routes/VerifyToken"); // Imports the middleware
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://credential-management-m2spv6s4f.vercel.app/', 
+  credentials: true,
+}));
 
 require("dotenv").config();
 
