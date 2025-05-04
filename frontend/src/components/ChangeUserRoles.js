@@ -19,7 +19,7 @@ const ChangeUserRole = () => {
       const token = localStorage.getItem("token");
 
       // Sends PATCH request to change user role
-      const response = await fetch(`${BASE_URL}/api/users/change-role/${userId}`, {
+      const response = await fetch(`${BASE_URL}api/users/change-role/${userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",  // Indicates JSON content

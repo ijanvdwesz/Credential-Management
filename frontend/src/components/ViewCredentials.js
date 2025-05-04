@@ -15,7 +15,7 @@ const ViewCredentials = () => {
         console.log("Token used for fetching: ", token); // Checks if token is available for debugging
 
         // Fetches the user information
-        const userInfoResponse = await fetch(`${BASE_URL}/api/users/user-info`, {
+        const userInfoResponse = await fetch(`${BASE_URL}api/users/user-info`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,  // Sends the token in the Authorization header
@@ -41,7 +41,7 @@ const ViewCredentials = () => {
         }
 
         // Fetches credentials for the selected division
-        const credentialsResponse = await fetch(`${BASE_URL}/api/credentials?divisionId=${selectedDivisionId}`, {
+        const credentialsResponse = await fetch(`${BASE_URL}api/credentials?divisionId=${selectedDivisionId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,  // Sends the token for authentication

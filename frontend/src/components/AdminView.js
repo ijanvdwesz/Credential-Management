@@ -16,12 +16,12 @@ const AdminView = () => {
       try {
         // Uses Promise.all to fetch divisions and OUs concurrently
         const [divisionsResponse, ousResponse] = await Promise.all([
-          fetch(`${BASE_URL}/api/divisions`, {
+          fetch(`${BASE_URL}api/divisions`, {
             headers: {
               "Authorization": `Bearer ${token}`, // Attaches token to request headers
             }
           }),
-          fetch(`${BASE_URL}/api/ous`, {
+          fetch(`${BASE_URL}api/ous`, {
             headers: {
               "Authorization": `Bearer ${token}`, // Attaches token to request headers
             }

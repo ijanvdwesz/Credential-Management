@@ -34,7 +34,7 @@ const RegisterForm = () => {
 
     try {
       // Makes API call to register the user with the entered form data
-      const response = await fetch(`${BASE_URL}/api/auth/register`, {
+      const response = await fetch(`${BASE_URL}api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",  // Sets the request content type to JSON

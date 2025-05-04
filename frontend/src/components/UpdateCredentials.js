@@ -17,7 +17,7 @@ const UpdateCredentials = () => {
     const token = localStorage.getItem("token");  // Gets the token from localStorage for authentication
     if (token) {
       // Fetches credentials from the API if the token exists
-      fetch(`${BASE_URL}/api/credentials`, {
+      fetch(`${BASE_URL}api/credentials`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,  // Includes token in the request headers for authentication
@@ -76,7 +76,7 @@ const UpdateCredentials = () => {
     }
 
     // Updates the selected credential by sending a PATCH request to the backend
-    fetch(`${BASE_URL}/api/credentials/${selectedCredential._id}`, {
+    fetch(`${BASE_URL}api/credentials/${selectedCredential._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",  // Sets the content type to JSON

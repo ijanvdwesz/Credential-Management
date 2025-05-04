@@ -16,7 +16,7 @@ const Dashboard = () => {
     if (!token) {
       navigate("/login");
     } else {
-      fetch(`${BASE_URL}/api/users/user-info`, {
+      fetch(`${BASE_URL}api/users/user-info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())

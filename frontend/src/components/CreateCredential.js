@@ -31,7 +31,7 @@ const CreateCredential = () => {
     const fetchUserDivisions = async () => {
       try {
         // Fetches the user's divisions from the backend with the Authorization header
-        const response = await fetch(`${BASE_URL}/api/users/user-info`, {
+        const response = await fetch(`${BASE_URL}api/users/user-info`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -74,7 +74,7 @@ const CreateCredential = () => {
 
     try {
       // Sends a POST request to the backend that creates the credential
-      const response = await fetch(`${BASE_URL}/api/credentials`, {
+      const response = await fetch(`${BASE_URL}api/credentials`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

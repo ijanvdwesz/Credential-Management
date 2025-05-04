@@ -9,7 +9,7 @@ export const NormalUserView = () => {
 
   // Fetches user info to get the divisions associated with the user
   useEffect(() => {
-    fetch(`${BASE_URL}/api/users/user-info`, {
+    fetch(`${BASE_URL}api/users/user-info`, {
       headers: { Authorization: `Bearer ${token}` },  // Authorization header with the token
     })
       .then((res) => res.json())  // Parses the response data

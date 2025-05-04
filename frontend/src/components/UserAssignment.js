@@ -15,13 +15,13 @@ const useFetchData = (token) => {
     try {
       // Fetches data for users, divisions, and OUs concurrently using Promise.all
       const [usersResponse, divisionsResponse, ousResponse] = await Promise.all([
-        fetch(`${BASE_URL}/api/users/admin-view`, {
+        fetch(`${BASE_URL}api/users/admin-view`, {
           headers: { Authorization: `Bearer ${token}` },  // Passes the token for authentication
         }),
-        fetch(`${BASE_URL}/api/divisions`, {
+        fetch(`${BASE_URL}api/divisions`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch(`${BASE_URL}/api/ous`, {
+        fetch(`${BASE_URL}api/ous`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -69,7 +69,7 @@ const UserAssignment = () => {
     if (!selectedUser || !selectedDivision) return;  // Ensures a user and division are selected
 
     try {
-      const response = await fetch(`${BASE_URL}/api/users/${selectedUser}/assign-division`, {
+      const response = await fetch(`${BASE_URL}api/users/${selectedUser}/assign-division`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const UserAssignment = () => {
   // Function that handles removing a division from the user
   const handleRemoveDivision = async (userId, divisionId) => {
     try {
-      const response = await fetch(`${BASE_URL}/api/users/${userId}/remove-division`, {
+      const response = await fetch(`${BASE_URL}api/users/${userId}/remove-division`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ const UserAssignment = () => {
     if (!selectedUser || !selectedOU) return;  // Ensures a user and OU are selected
 
     try {
-      const response = await fetch(`${BASE_URL}/api/users/${selectedUser}/assign-ou`, {
+      const response = await fetch(`${BASE_URL}api/users/${selectedUser}/assign-ou`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const UserAssignment = () => {
   // Function that handles removing an OU from the user
   const handleRemoveOU = async (userId, ouId) => {
     try {
-      const response = await fetch(`${BASE_URL}/api/users/${userId}/remove-ou`, {
+      const response = await fetch(`${BASE_URL}api/users/${userId}/remove-ou`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
